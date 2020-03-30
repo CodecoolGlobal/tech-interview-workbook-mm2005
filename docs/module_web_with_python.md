@@ -176,42 +176,217 @@
 
 ### Procedural
 22 How the CASE condition works in SQL?
+    The case statement in SQL returns a value of specified conditions.
+    Case expressions evaluate to the <result> of the first true <condition> similarly to a "IF-THEN-ELSE" statement.
+    If there is no ELSE part and no conditions are true, it returns NULL.
+    
 23 How the switch-case condition works in JavaScript?
+    Syntax
+	switch(expression) {
+	  case x:
+	    // code block
+	    break;
+	  case y:
+	    // code block
+	    break;
+	  default:
+	    // code block
+	}
+	The switch expression is evaluated once. The value of the expression is compared with the values of each case.
+	If there is a match, the associated block of code is executed.
+	
 24 How to achieve a switch-case-like structure in Python?
+    if, elif, elif..., else
+    
 25 Explain variable scoping in Python!
+    Scope Resolution in Python | LEGB Rule
+	Namespaces : A namespace is a container where names are mapped to objects, they are used to avoid confusions
+	in cases where same names exist in different namespaces. They are created by modules, functions, classes etc.
+	Scope : A scope defines the hierarchical order in which the namespaces have to be searched.
+	It is a context in which variables exist and from which they are referenced.
+	It defines the accessibility and the lifetime of a variable.
+	Scope resolution via LEGB rule :
+	In Python, the LEGB rule is used to decide the order in which the namespaces are to be searched for scope resolution.
+	The scopes are listed below in terms of hierarchy(highest to lowest/narrowest to broadest):
+    	Local(L): Defined inside function/class
+    	Enclosed(E): Defined inside enclosing functions(Nested function concept)
+    	Global(G): Defined at the uppermost level
+    	Built-in(B): Reserved names in Python builtin modules
+	!!!!!!
+	LEGB (local, enclosed, global, built-in) rule is to decide the order in which the namespaces are to be searched for scope resolution. The lifetime of a variable 	 is the duration for which the variable exists.
+	A variable's lifetime starts when it's referenced, and ends at the end of the variable's scope.
+	
 26 What’s the difference between const and var in JavaScript?
+    const is a variable which can't be overwritten, block scoped, cannot be reassigned
+	var is editable, overwriteable, function scoped, can be reassigned
+	
 27 How the list comprehension looks like in Python?
+    list = [i for i in range(n)]
+    
 28 How the “ternary expression” looks like in Python?
+    [on_true] if [expression] else [on_false]
+	min = a if a < b else b
+	
 29 How the ternary expression looks like in JavaScript?
+    condition ? exprIfTrue : exprIfFalse
+	let min = a < b ? a : b
+	
 30 How to import a function from another module in Python?
+    from module import function
+    
 31 How to import a function from another module in JavaScript?
-
+    1: Export the function from the "other_module" with the 'export' keyword
+	2: import function from other_module
+	
+	
 ### Functional
 32 What is recursion?
+    Recursion is a method where a function calls itself once or more in its body.
+    
 33 Write a recursive function which calculates the Fibonacci numbers!
+    def fio_num(i):
+   		if i <= 1:
+       			return i
+		else:
+		        return(fibo_num(i-1) + fibo_num(i-2))
+		        
 34 How to store a function in a variable in Python?
+    def my_func(i):
+	   	print(i)
+	my_var = my_func
+	
+func call:
+	my_var(42)
+	
 35 List the ways of defining a callable logical unit in JavaScript!
+
+
 36 What is an event listener? How to attach one?
+    An event listener looks for specified events, such as a click,
+    mouseover, mouseenter, mouseleave, mousedown. Any DOM event can be attached to it.
+	Syntax sample:
+		let randomDomElement.addEventListener('click', myFunction);
+		
 37 How to trigger an event in JavaScript?
+    element.dispatchEvent('eventName')
 38 What is a callback function? Tell some examples of its usage.
+    In JavaScript you can pass functions to other functions as variables.
+	A JavaScript Callback Function is a function that is passed as a parameter to another JavaScript function, and the callback function is run inside of the function it was passed into.
+	JavaScript Callback Functions can be used synchronously or asynchronously
+	Example:
+		function functionOne(x) { 
+			alert(x); }
+		function functionTwo(var1, callback) {
+		    callback(var1);}
+		functionTwo(2, functionOne);
+		
 39 What is a Python decorator? How does it work? Tell some examples of its usage.
+    A decorator is a design pattern in Python that allows a user to add new functionality to an existing object
+    without modifying its structure. Decorators are usually called before the definition of a function you want to decorate.
+	- in Flask the app.route is used as decorator.
+	
 40 What is the difference between synchronous and asynchronous execution?
+    Synchronous execution means the execution happens in a single series. A->B->C->D. If you are calling those routines,
+        A will run, then finish, then B will start, then finish, then C will start, etc.
+	When you execute something asynchronously, you can move on to another task before it finishes.
+	    When a task is executed asynchronously, you can directly switch to another task before the previous has been completed.
+	    One task does not depend on the other.
+	
 
 ## Programming languages
 
 ### SQL
 
 41 How can you connect your application to a database server? What are the possible ways?
+    try:
+	    connect_str = "dbname={} user={} host={} password={}".format(connection_data['dbname'],
+	                                                                 connection_data['user'],
+	                                                                 connection_data['host'],
+	                                                                 connection_data['password'])
+	    conn = psycopg2.connect(connect_str)
+	    conn.autocommit = True
+        except psycopg2.DatabaseError as e:
+            print("Cannot connect to database.")
+            print(e)
+        else:
+            return conn
+            
 42 When do you use the DISTINCT keyword in SQL?
+    Each value of the column will appear once only.
+    
 43 What are aggregate functions in SQL? Give 3 examples.
+    Aggregate functions group together values of multiple rows based on some kind of criteria.
+	Examples: COUNT(), AVG(), SUM()
+	
 44 What kind of JOIN types do you know in SQL? Could you give examples?
+    INNER JOIN: Only those cells returned which have values in both tables.
+	LEFT JOIN: INNER JOIN values + those which has values on the left table, but not in. the right.
+	    The cells without values (on the right) represented with NULLs.
+	RIGHT JOIN: Same as LEFT JOIN but with the right table.
+	FULL JOIN: INNER JOIN + cells from both tables which have values only one of them.
+	
 45 What are the constraints in sql?
+    CREATE TABLE table_name (
+    		column1 datatype constraint,
+    		column2 datatype constraint,
+    		column3 datatype constraint,
+    		....
+		);
+	Constraints are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the table.
+	If there is any violation between the constraint and the data action, the action is aborted.
+	EXAMPLES:
+		NOT NULL - Ensures that a column cannot have a NULL value
+		UNIQUE - Ensures that all values in a column are different
+		PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+		FOREIGN KEY - Uniquely identifies a row/record in another table
+		
 46 What is a cursor in SQL? Why would you use one?
+    Cursor is a database object to retrieve data from a result set one row at a time, instead of other SQL commands
+        that operate on all the rows in the result set at one time.
+	We use cursor in SQL when we need to update records in a database table in singleton fashion means row by row.
+	There are some conditions when we want to get record from one table and need to insert into another with performing some logic
+	    or some conditions. It works as for/while loop.
+	    
 47 What are database indexes? When to use?
+    Indexes are special lookup tables that the database search engine can use to speed up data retrieval.
+        Simply put, an index is a pointer to data in a table. An index in a database is very similar to an index in the back of a book.
+	An index helps to speed up SELECT queries and WHERE clauses, but it slows down data input, with the UPDATE and the INSERT statements.
+	    Indexes can be created or dropped with no effect on the data.
+	Creating an index involves the CREATE INDEX statement.
+	
 48 What are database transactions? When to use?
+    A transaction is a unit of work that is performed against a database. A transaction is the propagation of one or more changes to the database.
+    For example, if you are creating a record or updating a record or deleting a record from the table,
+        then you are performing a transaction on that table. It is important to control these transactions to ensure the data integrity
+        and to handle database errors.
+	Properties of Transactions
+		Transactions have the following four standard properties, usually referred to by the acronym ACID.
+		Atomicity − ensures that all operations within the work unit are completed successfully.
+		    Otherwise, the transaction is aborted at the point of failure and all the previous operations are rolled back to their former state.
+		Consistency − ensures that the database properly changes states upon a successfully committed transaction.
+		Isolation − enables transactions to operate independently of and transparent to each other.
+		Durability − ensures that the result or effect of a committed transaction persists in case of a system failure.
+	Transaction Control
+		COMMIT − to save the changes.
+		ROLLBACK − to roll back the changes.
+		SAVEPOINT − creates points within the groups of transactions in which to ROLLBACK.
+		
 49 What kind of database relations do you know? How to define them?
+    There are three specific types of relationships:
+		one-to-one
+		one-to-many
+		many-to-many
+	The tables participate in only one type of relationship at any given time.
+	
 50 You have a table with an “address” field which contains data like “3525, Miskolc, Régiposta 9.” (postcode, city, street name and address). How would you query all records related to Miskolc?
+    SELECT *
+	FROM table
+	WHERE address = 'Miskolc';
+	
 51 How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
+    Transaction Control
+	SAVEPOINT − creates points within the groups of transactions in which to ROLLBACK.
+
 
 ### HTML & CSS
 
