@@ -391,48 +391,183 @@ func call:
 ### HTML & CSS
 
 52 What’s the difference between XML, XHTML and HTML?
+    XML means eXtensible Markup Language, its method of representing data, so it can be send electronically and its machine independent.
+	HyperText Markup Language, commonly referred to as HTML, used to write websites
+	Extensible Hypertext Markup Language (XHTML) is a family of XML markup languages that mirror or extend versions
+	of the widely used Hypertext Markup Language (HTML), the language in which Web pages are formulated.
+	
 53 How to include a JavaScript file in a webpage?
+    <script src="{path/to/file.js}"></script>
+    
 54 How to include a CSS file in a webpage?
+    <link rel="stylesheet" href="{path/to/file.css}">
+    	
 55 How to select an element using its id in CSS?
+    #id{}
+    
 56 How to select elements using their class in CSS?
+    .class{}
+    
 57 How to select elements which have the ‘alpha’ and ‘beta’ classes in CSS?
+    .alpha.beta{}
+    
 58 How to select all list items in all ordered lists on the page in CSS?
+    ol li{}
+    
 59 How to select elements using their attributes in CSS?
+    example selects all <a> elements with a target="_blank" attribute:
+		a[target="_blank"] {
+		  background-color: yellow;
+		}
+		
 60 What are UX and UI?
+    UX design refers to the term “user experience design”, while UI stands for “user interface design”.
+    User experience design is a human-first way of designing products. It is the process of developing and improving the quality
+    of interaction between a user and all facets of a company.
+	UI design considers the look, feel, and interactivity of the product. It’s all about making sure that the user interface of
+	a product is as intuitive as possible, and that means carefully considering each and every visual, interactive element the user might encounter.
+	Short: UI is for the good looking and UX is for the good usability.
+		
 61 Please list some points that an application should fulfill to have good UX.
+    The ultimate purpose of UX design is to create easy, efficient, relevant, and all-round pleasant experiences for the user.
+    
 62 What is XML, XSLT, DTD?
+
+
 63 What is the difference between HTML and XML?
+    XML was designed to carry data - with focus on what data is
+	HTML was designed to display data - with focus on how data looks
+	XML tags are not predefined like HTML tags are
 
 ### Javascript
 
 64 What is javascript?
+    JavaScript is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and much more.
+    The programs in this language are called scripts. They can be written right in a web page’s HTML and run automatically as the page loads.
+    
 65 When to use AJAX? Bring examples of its usage.
+    AJAX stands for Asynchronous JavaScript and XML. (JSON) Twitter uses AJAX for showing notifictaions that there are new unread tweets.
+    With AJAX you can modify the content of a webpage without the need of refreshing it.
+	With AJAX, when you hit submit, JavaScript will make a request to the server, interpret the results, and update the current screen.
+	In the purest sense, the user would never know that anything was even transmitted to the server.
+	
 66 What is DOM and how to manipulate it from Javascript?
+    he Document Object Model (DOM) is a programming interface for HTML. It represents the page so that programs can change
+    the document structure, style, and content. The DOM represents the document as nodes and objects.
+    That way, programming languages can connect to the page. The DOM is an object-oriented representation of the web page,
+    which can be modified with a scripting language such as JavaScript.
+    
 67 What are events and how/why to use them in Javascript?
+    JavaScript's interaction with HTML is handled through events that occur when the user or the browser manipulates a page.
+	element.addEventListener('event', 'function')
+	
 68 What is event bubbling/capturing? How would you use it?
+    When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
+    The process is called 	“bubbling”, because events “bubble” from the inner element up through parents like a bubble in the water.
+		event.target
+		A handler on a parent element can always get the details about where it actually happened. 
+		    The most deeply nested element that caused the event is called a target element, accessible as event.target.
+			event.target – is the “target” element that initiated the event, it doesn’t change through the bubbling process.
+			this – is the “current” element, the one that has a currently running handler on it.
+		
 69 What is JSON and how do we use it?
+    JSON is a string format which is very similar to the one that javascript uses to define objects.
+    Browsers has a built in JSON object to convert a variable to JSON string (JSON.stringify function)
+    and to convert a JSON string back to a variable (JSON.parse function).
+
 
 ## Software engineering
 
 ### Version control
 
 70 What type of branching strategy would you use?
+    Git flow:
+		Master Branch
+			Develop branch
+				Feature Branch 1
+				Feature Branch 2
+	Merge feature branches into develop.
+	If develop works, and final, merge it into Master.
+	
 71 What would you do if you find a bug on the production code (master branch)?
+    Opeen a hotfix branch directly from master.
+	When ready, merge hotfix branch back to Master.
+	
 72 How can you move changes from one branch to another in GIT?
+    GIT merge
+
 73 How does a VCS help with code reviews?
+    With pull requests, merge will only happen if an authorized person approves the request.
+    
 74 What is your favorite git command? Why?
+    GIT merge - indicates that a feature is ready (or we think its ready). + there is the buzz wether we get a merge conflict
+    
 75 What does remote/local mean in Git? 
+    local: local machine - only accessible by the workstation
+	remote: remote deposit (server) - accessible by all participating developers
+	
 
 ### DevOps
 
 76 Why is it good to use a package manager software?
+    A package is an archive that contains binaries of software, configuration files, and information about dependencies.	
+	Python – Managers: pip / conda
+	Package Managers are used to automate the process of installing, upgrading, configuring, and removing programs.
+	Also, they manage dependencies to ensure a package is installed with all packages it requires, thus avoiding dependency hell.
+
 77 Why is it good to use a virtual environment for a project?
+    A virtual environment basically a collection of softwares with fixed versions. The development of a product is done within this fixed environment.
+    It is important because functions may behave/run differently among different softvare versions.
+    If we change the environment, the very same code that worked before may not behave the same way in the new environment.
+    It is essential that all developers use the same virtual environment suring the project. USE "requirements.txt" for storing the VE conditions.
+
 
 ### Networks
 
 78 What kind of HTTP status codes do you know?
+    1xx: Informational response
+	2xx: Success
+	3xx: Redirection
+	4xx: Client error
+	5xx: Server error
+	Example:
+		HTTP Status Code - 200 OK
+		The request has succeeded. The information returned with the response is dependent on the method used in the request.
+		HTTP Status Code - 300 Multiple Choices
+		The requested resource has different choices and cannot be resolved into one. For example, there may be several index.html
+		   pages depending on which language is wanted 
+		HTTP Status Code - 404 Not Found
+		The server has not found anything matching the Request-URI. No indication is given of whether the condition is temporary or permanent.
+		HTTP Status Code - 500 Internal Server Error
+		The server encountered an unexpected condition which prevented it from fulfilling the request.
+		
 79 What is a API?
+    API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other.
+    Modern APIs adhere to standards (typically HTTP and REST), that are developer-friendly, easily accessible and understood broadly.
+	AJAX:
+	In simple terms, AJAX (Asynchronous Javascript and XML) is a technique that allows web pages to be updated
+	asynchronously through the exchange of little amounts of data between clients and the servers in the background.
+	AJAX combines JavaScript and XML (or JSON) making it possible to update parts of a webpage, without reloading the whole page.
+	It allows clients to make asynchronous calls. By allowing asynchronous calls, AJAX saves time for the client browser
+	by enabling it to display parts of information on a specific page instead of waiting for all data to arrive to allow the users to can act once more.
+	Increased performance speed. By allowing sending and retrieval of information to and from the server without the full-page data,
+	AJAX improves the speed, performance, and usability of web applications.
+	We can fetch data from our local machine or server, public API.
+
 80 What is REST API?
+    REST, or REpresentational State Transfer, is an architectural style for providing standards between computer systems on the web,
+    making it easier for systems to communicate with each other. REST-compliant systems, often called RESTful systems.
+	SEPARATION OF CLIENT AND SERVER: the code on the client side can be changed at any time
+	without affecting the operation of the server, and vica-versa.
+	STATELESSNESS: the server does not need to know anything about what state the client is in and vice versa.
+	In this way, both the server and the client can understand any message received, even without seeing previous messages.
+	COMMUNICATION BETWEEN CLIENT AND SERVER: in the REST architecture, clients send requests to retrieve or modify resources,
+	and servers send responses to these requests. There are 4 basic HTTP verbs we use in requests to interact with resources in a REST system:
+		GET — retrieve a specific resource (by id) or a collection of resources
+		POST — create a new resource
+		PUT — update a specific resource (by id)
+		DELETE — remove a specific resource by id
+	
 81 What is JSON? When to use?
 82 What is TCP/IP? What layers does it define, what are they responsible for?
 83 What’s the difference between TCP and UDP?
