@@ -569,21 +569,128 @@ func call:
 		DELETE — remove a specific resource by id
 	
 81 What is JSON? When to use?
+    The JSON format is syntactically identical to the code for creating JavaScript objects. Because of this similarity,
+    a JavaScript program can easily convert JSON data into native JavaScript objects.
+    The JSON syntax is derived from JavaScript object notation syntax, but the JSON format is text only.
+    Code for reading and generating JSON data can be written in any programming language.
+	JSON is often used when data is sent from a server to a web page.
+	JSON Data: "firstName":"John"
+	JSON Objects: {"firstName":"John", "lastName":"Doe"}
+	JSON Arrays: "employees":[
+    			{"firstName":"John", "lastName":"Doe"},
+    			{"firstName":"Anna", "lastName":"Smith"}
+			]
+			
 82 What is TCP/IP? What layers does it define, what are they responsible for?
+    Transmission Control Protocol/Internet Protocol, is a suite of communication protocols used to interconnect network devices on the internet.
+		1) Network access layer: It defines how the data should be sent physically through the network.
+		2) Internet layer: The main responsibility of the internet layer is to send the packets from any network, and they arrive at the destination 				irrespective of the route they take.
+		3) Transport layer: The transport layer is responsible for the reliability, flow control,
+		    and correction of data which is being sent over the network.
+		4) Application Layer: This layer allows the user to interact with the application.
+		
 83 What’s the difference between TCP and UDP?
+    Transmission Control Protocol (TCP) is a connection-oriented protocol that computers use to communicate over the internet.
+    It is one of the main protocols in TCP/IP networks. TCP provides error-checking and guarantees delivery of data
+    and that packets will be delivered in the order they were sent.
+	User Datagram Protocol (UDP) is a connectionless protocol that works just like TCP but assumes that error-checking 
+	and recovery services are not required. Instead, UDP continuously sends datagrams to the recipient whether they receive them or not.
+	
 84 How does an HTTP Request look like? What are the most relevant HTTP header fields?
+    1: A start-line describing the requests to be implemented. This start-line is always a single line:
+		HTTP method, a verb (like GET, PUT or POST)
+		request target, usually a URL
+		HTTP version
+	2: An optional set of HTTP headers specifying the request, or describing the body included in the message.
+		Request headers, like User-Agent (ex: Mozills/5.0), Accept-Type (text/html), modify the request by specifying it further (like Accept-Language),
+	3: A blank line indicating all meta-information for the request has been sent.
+	4: An optional body containing data associated with the request (like content of an HTML form)
+	HTTP header fields provide required information about the request or response, or about the object sent in the message body.
+	There are three main types of HTTP 	message headers:
+		General headers, like Via
+		Request headers, like User-Agent, Accept-Type
+		Entity headers, like Content-Length
+		
 85 How does an HTTP Response look like? What are the most relevant HTTP header fields?
+    1: The start line of an HTTP response, called the status line:
+		- protocol version, usually HTTP/1.1.
+		- a status code (like: 200, 404)
+		- a status text. A brief, purely informational, textual description
+	2: HTTP headers:
+		General headers, like Via
+		Response headers, like Vary and Accept-Ranges
+		Entity headers, like Content-Length
+	3: Body:
+		single file
+		
 86 What is DNS? How does it work?
+    The Domain Name System (DNS) is the phonebook of the Internet. Humans access information online through domain names.
+    Web browsers interact through Internet Protocol (IP) addresses. DNS translates domain names to IP addresses.
+    Each device connected to the Internet has a unique IP address which other machines use to 	find the device.
+	How does it work?
+	The process of DNS resolution involves converting a hostname (such as www.example.com) into a computer-friendly IP address (such as 192.168.1.1).
+	An IP address is given to each device on the Internet, and that address is necessary to find the appropriate Internet device.
+	
 87 What is a web server?
+    A web server stores and delivers the content for a website – such as text, images, video, and application data – to clients that request it.
+    A web server communicates with a web browser using the Hypertext Transfer Protocol (HTTP).
+    The content of most web pages is encoded in Hypertext Markup Language (HTML). 
+
 88 Explain the client-server architecture.
+    Client-server architecture is an architecture of a computer network in which many clients (remote processors)
+    request and receive service from a centralized server (host computer). Client computers provide an interface
+    to allow a computer user to request services of the server and to display the results the server returns.
+     Servers wait for requests to arrive from clients and then respond to them.
+
 89 What would you use a session for?
+    For user authentication. There is no need of logging in every time the page reloaded until the session expires.
+	A session is a collection of data stored on the server and associated with a given user (usually via a cookie containing an id code)
+	
 90 What would you use a cookie for?
+    Cookies are mainly used for simple data that shouldn't be trusted (since the user can tamper with it),
+    mainly for preferences settings on a site (but cookies are used for e.g. showing you personalized ads as well).
+	A cookie is a bit of data stored by the browser and sent to the server with every request.
+
 
 ## Software Development Methodologies
 
 91 What kind of software development methodologies do you know? What are the main features of these?
+    Waterfall Project Management
+		The waterfall method is a sequential design process used in software development processes,
+		  in which progress is seen as flowing steadily downwards (like a waterfall) through the phases of
+		  conception, initiation, analysis, design, construction, testing, production/implementation and maintenance.
+		It's still a really good way to implement a software, where the requirements are clear, the technology is understood and the project is short. 
+	Agile Project Management
+		In the context of software development: Agile is a time boxed, iterative approach to software delivery
+		that builds software incrementally from the start of the project, instead of trying to deliver it all at once near the end.
+
 92 What are the SCRUM roles?
+    ScrumMaster - A good ScrumMaster shelters the team from outside distractions, allowing team members
+    to focus maniacally during the sprint on the goal they have selected.
+	Product owner - works to direct the team to the right goal - prioritizing product backlog
+	Scrum team - Although individuals may join the team with various job titles, in Scrum, those titles are insignificant.
+	Scrum methodology states that each person contributes in whatever way they can to complete the work of each sprint.
+	
 93 What are the SCRUM ceremonies?
+    Sprint Planning Meeting:  This is where the team meets and decides what they need to complete in the coming sprint
+	Daily Standups: This is a standup meeting, or a very short – 15-minute mini-meeting – for the team to make sure they’re all on the same page.
+	Sprint Review Meeting: the team demos what they shipped in the sprint
+	Sprint Retrospective: team reviews their work, identifying what they did well and what didn’t go as planned
+	
 94 What are the SCRUM artifacts?
+    primary artifact: the product itself: The Scrum model expects the team to bring the product or system
+        to a potentially shippable state at the end of each Scrum sprint.
+	product backlog: This is the complete list of the functionality that remains to be added to the product. (user stories)
+	sprint backlog: team members create it. It is the team's to-do list for the sprint.
+	sprint burndown chart: Burndown charts show the amount of work remaining
+	
 95 What is the main goal of a retrospective meeting?
+    It is to evaluate the latest sprint, identify the good and bad practices, and provide solutions to them.
+    
 96 Explain, when would you recommend to use the waterfall methodology?
+    It's still a really good way to implement a software, where the requirements are clear, the technology is understood and the project is short.
+    
+    
+    
+    
+    
