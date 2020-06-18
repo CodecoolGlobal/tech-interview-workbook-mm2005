@@ -350,47 +350,143 @@ And of a bubble sort, quicksort, finding items in a Binary Search tree?
 
 ### Java
 
-#### What is autoboxing and unboxing?
-#### If you have a variable, that shall store a positive whole number between 0 and 200, what primitive type would you use to store it?
-#### What is the "golden rule" of variable scoping in Java? What is the lifetime of variables?
-#### What is the purpose of the ‘equals()’ method?
-#### What is the difference between '==' and 'equals()'?
-#### What does the ‘static’ keyword mean?
-#### Why is the main() method declared as static? Explain.
-#### What is the default access modifier in a class?
-#### What is the JVM?
-#### What is the difference between the JRE and the JDK?
-#### What is the difference between long and Long?
-#### Can a long store bigger numbers than a Long?
-#### What kind of packages do you know under java.util.* ? Bring at least 3 examples.
-#### What are the access modifiers in Java? Which one could we use for class?
-#### Can an “enum” contain methods in Java? Explain.
-#### When would you use a private/protected/public attribute? What is the difference?
-#### How do you prevent developers from subclassing a class?
-#### How do you prevent developers from overriding a method in a subclass?
-#### How do you prevent developers from changing the value of a variable?
-#### Think about money ;) How would you store a currency value, that shall support decimal parts? Think it through again, and try to think outside of the box!
-#### What happens if you try to call something, that you have no access to, because of data hiding?
-#### What happens if you try to delete/drop an item from an array, while you are iterating over it?
-#### What happens if you try to delete/drop/add an item from a List, while you are iterating over it?
-#### What happens if you try to add an item to the end of an array, while you are iterating over it?
-#### If you need to access the iterator variable after a for loop, how would you do it?
-#### Which interfaces extend the Collection interface in Java. Which classes?
-#### What is the connection between equals() and hashCode()? How are they used in HashMap?
-#### What is the difference between checked exceptions and unchecked exceptions? Could you bring example for each?
-#### What is Error in Java and how does it relate to Exception?
-#### When does 'finally' block run? What it is used for? Could you give an example from your projects when you would use 'finally'?
-#### What is the largest number you can work with in Java?
-#### When you use method overriding, can you change the access level of the method, from protected to public? Why?When you use method overriding, can you change the access level of the method, from public to protected? Why?
-#### Can the main method be overridden? Explain your answer!
-#### When you use method overriding, can you throw fewer exceptions in the subclass than in the parent class? Why?
-#### When you use method overriding, can you throw more exceptions in the subclass than in the parent class? Why?
-#### What does "final" mean in case of a variable, method or a class?
-#### What is the super keyword?
-#### What are “generics”? When to use? Show examples.
-#### What is the benefit of having “generic” containers?
-#### Given two Java programs on two different machines. How can you communicate between the two? What are the possible ways?
-#### What is an annotation? What can be annotated and how? Show examples.
+38 What is autoboxing and unboxing?
+
+    Autoboxing is the automatic conversion that the Java compiler makes between the primitive types, and their corresponding object wrapper classes.
+    For example, converting an int to an Integer, a double to a Double, and so on. If the conversion goes the other way, this is called unboxing.
+
+39 If you have a variable, that shall store a positive whole number between 0 and 200, what primitive type would you use to store it?
+    
+    The most efficient would be to store it in byte, but that would harden the readability.
+    A byte can store values from -128 to 127 this way every number should be extracted by 128. The more sophisticated (lifelike) version is to store it in a short.
+
+40 What is the "golden rule" of variable scoping in Java? What is the lifetime of variables?
+
+    The golden rule is that static code cannot access non-static members by their simple names.
+    Static code is not executed in the context of an object, therefore the references this and super are not available.
+    An object has knowledge of its class, therefore, static members are always accessible in a non-static context. Lifetime of variables:
+    
+    | Type | Description | 
+    
+    | Instance variables | The lifetime of an instance variable is until the object stays in memory. |
+    | Class variables | The general scope of a class variable is throughout the class and the lifetime of a class variable
+                        is until the end of the program or as long as the class is loaded in memory. |
+    | Local variables | Scope of a local variable is within the block in which it is declared and the lifetime of a local variable
+                        is until the control leaves the block in which it is declared. |
+
+41 What is the purpose of the ‘equals()’ method?
+
+    Its purpose is to check whether two objects contains the same data or not.  
+
+42 What is the difference between '==' and 'equals()'?
+
+    The "==" operator, returns true only if the two objects are the same (even has the same memory address), not only their value is the same.
+
+43 What does the ‘static’ keyword mean?
+
+    It means that only one instance of a static field exists even if you create a million instances of the class, or you don't create any. It will be shared by all instances.
+
+44 Why is the main() method declared as static? Explain.
+
+    Because they can then be invoked by the runtime engine without having to instantiate any objects then the code in the body of main() will do the rest.
+
+45 What is the default access modifier in a class?
+
+    When no access modifier is specified for a class , method or data member – It is said to be having the default access modifier by default.
+    The data members, class or methods which are not declared using any access modifiers i.e. having default access modifier are accessible only within the same package.
+
+46 What is the JVM?
+
+    The Java Virtual Machine manages system memory and provides a portable execution environment for Java-based applications.
+    The JVM has two primary functions: to allow Java programs to run on any device or operating system, and to manage and optimize program memory.
+
+47 What is the difference between the JRE and the JDK?
+
+    The JRE is the Java Runtime Environment. It is a package of everything necessary to run a compiled Java program, including the Java Virtual Machine (JVM),
+                                             the Java Class Library, the java command, and other infrastructure. However, it cannot be used to create new programs.
+    
+    The JDK is the Java Development Kit, the full-featured SDK for Java. It has everything the JRE has, but also the compiler (javac) and tools (like javadoc and jdb).
+                                         It is capable of creating and compiling programs.
+
+48 What is the difference between long and Long?
+
+    -   The long is primitive type, while Long is the object from long.
+    -   The long is passed by value and Long is passed by reference.
+    -   You can initialize Long to null.
+    Rule of thumb - always prefer primitive types unless you need it in object form.
+
+49 Can a long store bigger numbers than a Long?
+
+    Since Long is only the wrapper class for long, and doesn't limit it's range they can store equally big numbers.
+
+50 What kind of packages do you know under java.util.* ? Bring at least 3 examples.
+
+    -   Date
+    -   List
+    -   Set
+    -   Random
+    -   Currency
+
+51 What are the access modifiers in Java? Which one could we use for class?
+
+    A Java access modifier specifies which classes can access a given class and its fields, constructors and methods.
+    Access modifiers can be specified separately for a class, its constructors, fields and methods. There are four of them:
+    -   private (visible from inside the same class)
+    -   default (visible from inside the same package)
+    -   protected (visible from subclasses of the superclass even outside the package)
+    -   public
+    Classes can only have the default (package) and public access modifier assigned to them.
+
+52 Can an “enum” contain methods in Java? Explain.
+
+    Yes it can, You call a Java enum method via a reference to one of the constant values.
+
+53 When would you use a private/protected/public attribute? What is the difference?
+
+    Private Access modifier: This modifier is open to use within the class that defines it. ( it can’t be accessed outside the class means in inherited class).
+    
+    Protected Access modifier: This modifier is open to use within the class in which it is defined and its parent or inherited classes.
+    
+    Public Access modifier: This modifier is open to use inside as well as outside the class.
+
+54 How do you prevent developers from subclassing a class?
+
+    While one of Java's strengths is the concept of inheritance, in which a class can derive from another,
+    sometimes it's desirable to prevent inheritance by another class. To prevent inheritance, use the keyword "final" when creating the class.
+
+55 How do you prevent developers from overriding a method in a subclass?
+
+    Apart from final methods there are two more techniques which you can use to prevent a method from being overridden in Java.
+    Private method is not accessible in subclass, which means they can not be overridden as well, because overriding happens at child class.
+    Similarly, static methods can not be overridden in Java, because they are resolved and bonded during compile time, while overriding takes place at runtime.
+    They are resolved based upon the type and not object.
+
+56 How do you prevent developers from changing the value of a variable?
+
+    If you would like to prevent the value of variable which is of primitive type, you can do so using final keyword.
+
+57 Think about money ;) How would you store a currency value, that shall support decimal parts? Think it through again, and try to think outside of the box!
+58 What happens if you try to call something, that you have no access to, because of data hiding?
+59 What happens if you try to delete/drop an item from an array, while you are iterating over it?
+60 What happens if you try to delete/drop/add an item from a List, while you are iterating over it?
+61 What happens if you try to add an item to the end of an array, while you are iterating over it?
+62 If you need to access the iterator variable after a for loop, how would you do it?
+63 Which interfaces extend the Collection interface in Java. Which classes?
+64 What is the connection between equals() and hashCode()? How are they used in HashMap?
+65 What is the difference between checked exceptions and unchecked exceptions? Could you bring example for each?
+66 What is Error in Java and how does it relate to Exception?
+67 When does 'finally' block run? What it is used for? Could you give an example from your projects when you would use 'finally'?
+68 What is the largest number you can work with in Java?
+69 When you use method overriding, can you change the access level of the method, from protected to public? Why?When you use method overriding, can you change the access level of the method, from public to protected? Why?
+70 Can the main method be overridden? Explain your answer!
+71 When you use method overriding, can you throw fewer exceptions in the subclass than in the parent class? Why?
+72 When you use method overriding, can you throw more exceptions in the subclass than in the parent class? Why?
+73 What does "final" mean in case of a variable, method or a class?
+74 What is the super keyword?
+75 What are “generics”? When to use? Show examples.
+76 What is the benefit of having “generic” containers?
+77 Given two Java programs on two different machines. How can you communicate between the two? What are the possible ways?
+78 What is an annotation? What can be annotated and how? Show examples.
 
 ### C&#35;
 
@@ -442,5 +538,67 @@ And of a bubble sort, quicksort, finding items in a Binary Search tree?
 
 ### Database
 
-#### How can you connect your application to a database server? What are the possible ways?
-#### What do you know about database normalization?
+79 How can you connect your application to a database server? What are the possible ways?
+
+    Java can reach the database via two different interfaces:
+    -   JDBC (Java DB Connectivity) is the lower level. You can run SQL queries via this.
+    -   JPA (Java persistence API) is the higher level one. This is the Java standard for ORM ( Object Relational Mapping). 
+    I. e. it maps DB tables to classes so the Java developer do not need to deal with DB tables, only objects.
+    
+    There are 5 steps to connect any java application with the database using JDBC. These steps are as follows:
+    -   Register the Driver class
+        `
+        public static void forName(String className) throws ClassNotFoundException{
+            Class.forName("oracle.jdbc.driver.OracleDriver);
+        }
+        `
+    -   Create connection
+        `
+        public static Connection getConnection(String url) throws SQLException{
+            Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","password");  
+        }
+        `
+    -   Create statement
+        `
+        public Statement createStatement()throws SQLException{
+            Statement stmt=con.createStatement();  
+        }
+        `
+    -   Execute queries
+        `
+        public ResultSet executeQuery(String sql)throws SQLException{
+            ResultSet rs=stmt.executeQuery("select * from emp");
+            while(rs.next()){
+                System.out.println(rs.getInt(1)+" "+rs.getString(2));  
+            }
+        }
+        `
+    -   Close connection
+        `
+        public void close()throws SQLException{
+            con.close();
+        }
+        `
+
+80 What do you know about database normalization?
+
+    Normalization is the process of efficiently organizing data in the database.
+    It's goal is to eliminate redundant data & ensure meaningful data dependencies. 
+    1.  First Normal Form (1NF)
+        - Create separate set of tables for each group of related data and identify each row with a unique columns [primary key]
+          or set of columns [composite key]
+        - Eliminate duplicate columns from the table
+    2. Second Normal Form (2NF)
+        - Meet all the requirements of the first normal form
+        - Remove subsets of data that apply to multiple rows of a table and place them in separate tables
+        - Create relationships between these new tables and their predecessors through the use of foreign keys
+    3. Third Normal Form (3NF)
+        - Meet all the requirements of the second normal form.
+        - Remove columns that are not dependent upon the primary key.
+    
+    Advantages:
+    -   Data can be stored as small atomic pieces
+    -   Saves space
+    -   Increases speed
+    -   Reduces data anomalies
+    -   Easy maintenance
