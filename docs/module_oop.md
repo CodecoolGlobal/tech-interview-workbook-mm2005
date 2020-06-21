@@ -466,27 +466,194 @@ And of a bubble sort, quicksort, finding items in a Binary Search tree?
     If you would like to prevent the value of variable which is of primitive type, you can do so using final keyword.
 
 57 Think about money ;) How would you store a currency value, that shall support decimal parts? Think it through again, and try to think outside of the box!
+
+    Java has Currency class that represents the ISO 4217 currency codes. BigDecimal is the best type for representing currency decimal values.
+
 58 What happens if you try to call something, that you have no access to, because of data hiding?
+
+    You will get compile time error.
+
 59 What happens if you try to delete/drop an item from an array, while you are iterating over it?
+
+    Since arrays length are fixed you can't delete/drop item from it, but you can from an ArrayList.
+
 60 What happens if you try to delete/drop/add an item from a List, while you are iterating over it?
+
+    You will get a ConcurrentModificationException.
+
 61 What happens if you try to add an item to the end of an array, while you are iterating over it?
+
+    You can't add an item to an array, but with a List you will get an infinite loop.
+
 62 If you need to access the iterator variable after a for loop, how would you do it?
+
+    I would declare the iterator variable before the loop, this way it will have the last value it was assigned to.
+
 63 Which interfaces extend the Collection interface in Java. Which classes?
+
+    Set and List Interfaces extends directly. ArrayList, LinkedList, SortedSet.
+
 64 What is the connection between equals() and hashCode()? How are they used in HashMap?
+
+    equals(Object obj): a method provided by java.lang.Object that indicates whether some other object passed as an argument is "equal to" the current instance.
+    The default implementation provided by the JDK is based on memory location 
+    — two objects are equal if and only if they are stored in the same memory address.
+    
+    hashcode(): a method provided by java.lang.Object that returns an integer representation of the object memory address.
+    By default, this method returns a random integer that is unique for each instance.
+    This integer might change between several executions of the application and won't stay the same.
+
 65 What is the difference between checked exceptions and unchecked exceptions? Could you bring example for each?
+
+    The main difference between checked and unchecked exception is that the checked exceptions are checked at compile-time while unchecked exceptions are checked at runtime.
+    
+    Checked Exception:
+        `java
+        import java.io.*;
+        class Example {  
+           public static void main(String[] args) throws IOException
+           {
+              FileInputStream fis  ;
+              fis = new FileInputStream("B:/myfile.txt"); 
+              int k; 
+        
+              while(( k = fis.read() ) != -1) 
+              { 
+               System.out.print((char)k); 
+              } 
+              fis.close(); 	
+           }
+        }
+        `
+    
+    Unchecked Exception:
+        `java
+        class Example {  
+           public static void main(String[] args)
+           {
+            int num1=10;
+            int num2=0;
+            /*Since I'm dividing an integer with 0
+             * it should throw ArithmeticException
+                 */
+            int res=num1/num2;
+            System.out.println(res);
+           }
+        }
+        `
+
 66 What is Error in Java and how does it relate to Exception?
+
+    | ERRORS |
+    Recovering from Error is not possible.
+    All errors in java are unchecked type.
+    Errors are mostly caused by the environment in which program is running.
+    Errors occur at runtime and not known to the compiler.
+    They are defined in java.lang.Error package.
+    Examples : java.lang.StackOverflowError, java.lang.OutOfMemoryError 
+    
+    | EXCEPTIONS |
+    We can recover from exceptions by either using try-catch block or throwing exceptions back to caller.
+    Exceptions include both checked as well as unchecked type.
+    Program itself is responsible for causing exceptions. 
+    All exceptions occurs at runtime but checked exceptions are known to compiler while unchecked are not. 
+    They are defined in java.lang.Exception package.
+    Examples : Checked Exceptions : SQLException, IOException Unchecked Exceptions : ArrayIndexOutOfBoundException, NullPointerException, ArithmeticException.
+
 67 When does 'finally' block run? What it is used for? Could you give an example from your projects when you would use 'finally'?
+
+    The finally block always comes with a try and/or cath block. It is always executed regardless any exceptions raised.
+    But finally is useful for more than just exception handling — it allows the programmer
+    to avoid having cleanup code accidentally bypassed by a return, continue, or break.
+    Putting cleanup code in a finally block is always a good practice, even when no exceptions are anticipated. 
+
 68 What is the largest number you can work with in Java?
-69 When you use method overriding, can you change the access level of the method, from protected to public? Why?When you use method overriding, can you change the access level of the method, from public to protected? Why?
+
+    With BigIntegers only the available memory limits the largeness of a number.
+    
+69 When you use method overriding, can you change the access level of the method, from protected to public?
+   Why?When you use method overriding,can you change the access level of the method, from public to protected? Why?
+
+    Extending a class means the subclass has at least the same functionality to the other classes.
+    If overriding extends that, then it is not a problem. Restriction is not allowed.
+    -   from protected to public: OK
+    -   from public to protected: not allowed
+
 70 Can the main method be overridden? Explain your answer!
+
+    Since static methods can't be overridden, no it can't. Although it can be hidden, if a subclass contains the same method with its signature.
+    This way the subclass's method will be executed, but it's called method hiding.
+
 71 When you use method overriding, can you throw fewer exceptions in the subclass than in the parent class? Why?
+
+    An overriding method can throw fewer/narrower exceptions than the overridden one. Otherwise, it would produce compile time error.
+
 72 When you use method overriding, can you throw more exceptions in the subclass than in the parent class? Why?
+
+    An overriding method can't throw more/broader exceptions than the overridden one. (Except unchecked exceptions.)
+    That's because of polymorphism. Any subclasses of the original exceptions could be handled but nothing else.
+
 73 What does "final" mean in case of a variable, method or a class?
+    
+    -   Variable: It's value cannot be changed, it's a constant. That's why it must be initialized.
+    -   Method: It can't be overridden. All subclasses can only use the original implementation.
+    -   Class: It makes it immutable, so it can't be extended (inheritance prevention).
+
 74 What is the super keyword?
+
+    It refers to the immediate parent's property. This is useful when you override a method in a subclass
+    but still wants to call the method defined in the parent class. For example:
+        `java
+        class ClassOne { 
+            public say() { 
+                System.out.println("Here goes:");
+                }
+            }
+            
+        class ClassTwo extends ClassOne { 
+            public say() { 
+                super.say();
+                System.out.println("Hello"); 
+            } 
+        }
+        `
+    Now, new ClassTwo().say() will output:
+        `
+        Here goes:
+        Hello
+        `
+    
 75 What are “generics”? When to use? Show examples.
+
+    Java Generic methods and generic classes enable programmers to specify, with a single method declaration, a set of related methods,
+    or with a single class declaration, a set of related types, respectively. We use <> to specify parameter types in generic class creation:
+        `
+        ArrayList <Type> arrayList = new List<Type>();
+        `
+    Similar with methods:
+        `
+        public void displayType(T object){
+            System.out.println(object.getClass().getName());
+        }
+        `
+    
 76 What is the benefit of having “generic” containers?
+
+    Type safety (errors appears at compile time). It enables implementation of generic algorithms.
+
 77 Given two Java programs on two different machines. How can you communicate between the two? What are the possible ways?
+
+    They could each listen on a Socket. Although they could write to and read from a file in a shared folder.
+
 78 What is an annotation? What can be annotated and how? Show examples.
+
+    Annotations, a form of metadata, provide data about a program that is not part of the program itself.
+    Annotations have no direct effect on the operation of the code they annotate.
+    Annotations have a number of uses, among them:
+        Information for the compiler — Annotations can be used by the compiler to detect errors or suppress warnings. e.g. @Override
+        Compile-time and deployment-time processing — Software tools can process annotation information to generate code, XML files, and so forth.
+        Runtime processing — Some annotations are available to be examined at runtime.
+
 
 ### C&#35;
 
