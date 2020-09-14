@@ -689,8 +689,3 @@ func call:
     
 96 Explain, when would you recommend to use the waterfall methodology?
     It's still a really good way to implement a software, where the requirements are clear, the technology is understood and the project is short.
-    
-    
-    
-    
-    
