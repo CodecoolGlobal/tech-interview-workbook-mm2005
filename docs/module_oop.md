@@ -14,6 +14,7 @@
     -   It’s faster to stabilize softwares.
     -   Fewer bugs and defects will go into production, thus leading to higher-quality and more production-ready software.
     -   The cost of failures and bugs are reduced.
+
 ## Computer Science
 
 ### Data structures
@@ -657,55 +658,55 @@ And of a bubble sort, quicksort, finding items in a Binary Search tree?
 
 ### C&#35;
 
-#### Explain the purpose of IL and how does it relate to CLR?
-#### What does “managed code” mean?
-#### What is an assembly?
-#### What is the difference between an EXE and a DLL?
-#### What is strong-typing versus weak-typing? Which is preferred? Why?
-#### What is a namespace?
-#### Explain sealed class in C#?
-#### What is explicit vs. implicit conversion? Give examples of both of them.
-#### Is a struct stored on the heap or stack?
-#### Can a struct have methods?
-#### Can DateTimes be null?
-#### List out the differences between Array and ArrayList in C#?
-#### How is the using() pattern useful? What is IDisposable? How does it support deterministic finalization?
-#### How can you make sure that objects using dedicated resources (database connection, files, hardware, OS handle, etc.) are released as early as possible?
-#### Why to use keyword “const” in C#? Give an example.
-#### What is the difference between “const” and “readonly” variables in C#?
-#### What is a property in C#?
-#### List out two different types of errors in C#?
-#### What is the difference between “out” and “ref” parameters in C#?
-#### Can we override private virtual method in C#?
-#### What's the difference between IEquatable and just overriding Object.Equals()?
-#### Explain the differences between public, protected, private and internal. Explain access modifier – “protected internal” in C#!
-#### What’s the difference between using `override` and `new` keywords when defining method in child class?
-#### Explain StringBuilder class in C#!
-#### How we can sort the array elements in descending order in C#?
-#### Can you use a value type as a generic type argument in C#? For example when implementing an interface like (IEquatable).
-#### What are Nullable Types in C#?
-#### Conceptually, what is the difference between early-binding and late-binding?
-#### What is delegate, event, callback, multicast delegate?
-#### What is enum in C#?
-#### What is null-conditional operator?
-#### What is null-coalescing operator?
-#### What is serialization?
-#### What is the difference between Finalize() and Dispose() methods?
-#### How do you inherit a class from another class in C#?
-#### What is difference between “is” and “as” operators in C#?
-#### What are indexers in C# .NET?
-#### What is the difference between returning IQueryable<T> vs. IEnumerable<T>?
-#### What is LINQ? Explain the idea of extension methods.
-#### What are the advantages and disadvantages of lazy loading?
-#### How to use of “yield” keyword? Mention at least one practical scenario where it can be used?
-#### What are attributes in C#? Give some examples of usage of them.
-#### By what mechanism does NUnit know what methods to test?
-#### What is the GAC? What problem does it solve?
-#### What is the largest number you can work with in C#?
+79 Explain the purpose of IL and how does it relate to CLR?
+80 What does “managed code” mean?
+81 What is an assembly?
+82 What is the difference between an EXE and a DLL?
+83 What is strong-typing versus weak-typing? Which is preferred? Why?
+84 What is a namespace?
+85 Explain sealed class in C#?
+86 What is explicit vs. implicit conversion? Give examples of both of them.
+87 Is a struct stored on the heap or stack?
+88 Can a struct have methods?
+89 Can DateTimes be null?
+90 List out the differences between Array and ArrayList in C#?
+91 How is the using() pattern useful? What is IDisposable? How does it support deterministic finalization?
+92 How can you make sure that objects using dedicated resources (database connection, files, hardware, OS handle, etc.) are released as early as possible?
+93 Why to use keyword “const” in C#? Give an example.
+94 What is the difference between “const” and “readonly” variables in C#?
+95 What is a property in C#?
+96 List out two different types of errors in C#?
+97 What is the difference between “out” and “ref” parameters in C#?
+98 Can we override private virtual method in C#?
+99 What's the difference between IEquatable and just overriding Object.Equals()?
+100 Explain the differences between public, protected, private and internal. Explain access modifier – “protected internal” in C#!
+101 What’s the difference between using `override` and `new` keywords when defining method in child class?
+102 Explain StringBuilder class in C#!
+103 How we can sort the array elements in descending order in C#?
+104 Can you use a value type as a generic type argument in C#? For example when implementing an interface like (IEquatable).
+105 What are Nullable Types in C#?
+106 Conceptually, what is the difference between early-binding and late-binding?
+107 What is delegate, event, callback, multicast delegate?
+108 What is enum in C#?
+109 What is null-conditional operator?
+110 What is null-coalescing operator?
+111 What is serialization?
+112 What is the difference between Finalize() and Dispose() methods?
+113 How do you inherit a class from another class in C#?
+114 What is difference between “is” and “as” operators in C#?
+115 What are indexers in C# .NET?
+116 What is the difference between returning IQueryable<T> vs. IEnumerable<T>?
+117 What is LINQ? Explain the idea of extension methods.
+118 What are the advantages and disadvantages of lazy loading?
+119 How to use of “yield” keyword? Mention at least one practical scenario where it can be used?
+120 What are attributes in C#? Give some examples of usage of them.
+121 By what mechanism does NUnit know what methods to test?
+122 What is the GAC? What problem does it solve?
+123 What is the largest number you can work with in C#?
 
 ### Database
 
-79 How can you connect your application to a database server? What are the possible ways?
+124 How can you connect your application to a database server? What are the possible ways?
 
     Java can reach the database via two different interfaces:
     -   JDBC (Java DB Connectivity) is the lower level. You can run SQL queries via this.
@@ -747,7 +748,7 @@ And of a bubble sort, quicksort, finding items in a Binary Search tree?
         }
         `
 
-80 What do you know about database normalization?
+125 What do you know about database normalization?
 
     Normalization is the process of efficiently organizing data in the database.
     It's goal is to eliminate redundant data & ensure meaningful data dependencies. 
